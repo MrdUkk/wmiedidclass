@@ -1,0 +1,48 @@
+#pragma namespace("\\\\.\\ROOT\\cimv2")
+
+instance of __Win32Provider as $P
+{
+    Name    = "Win32_EDIDMonInfo" ;
+    ClsId   = "{8D177BAB-6F31-45AD-A3D5-7654279A54BB}" ;
+} ;
+
+instance of __InstanceProviderRegistration
+{
+    Provider = $P;
+    SupportsPut = FALSE;
+    SupportsGet = TRUE;
+    SupportsDelete = FALSE;
+    SupportsEnumeration = TRUE;
+};
+
+[dynamic, provider("Win32_EDIDMonInfo")]
+class Win32_EDIDMonInfo
+{
+    [key]
+    sint32 ID;
+
+    [PropertyContext("MonSizeH")]
+    sint32 MonSizeH;
+    [PropertyContext("MonSizeV")]
+    sint32 MonSizeV;
+    [PropertyContext("DispSizeH")]
+    uint32 DispSizeH;
+    [PropertyContext("DispSizeV")]
+    uint32 DispSizeV;
+    [PropertyContext("MfgYear")]
+    sint32 MfgYear;
+    [PropertyContext("MfgWeek")]
+    sint32 MfgWeek;
+    [PropertyContext("MfgModelYear")]
+    sint32 MfgModelYear;
+    [PropertyContext("Identifier")]
+    String Identifier;
+    [PropertyContext("Vendor")]
+    String Vendor;
+    [PropertyContext("ModelName")]
+    String ModelName;
+    [PropertyContext("Mode")]
+    String Mode;
+    [PropertyContext("Serial")]
+    String Serial;
+};
